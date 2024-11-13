@@ -43,7 +43,7 @@ Content-Type: application/json
       "email": "chris@anubhavtrainings.com",
       "loginName": "RONALDO",
       "Currency_code": "USD",
-      "salaryAmount": "1000000",
+      "salaryAmount": "100009",
       "accountNumber": "3344556677",
       "bankId": "26005885",
       "bankName": "My Bank of New York"
@@ -86,5 +86,6 @@ Content-Type: application/json
 ###Get the largest order
 http://localhost:4004/odata/v4/CatalogService/largestOrder()
 
-###Get EmployeeSrv
+###Get EmployeeSrv - Test Commit
 http://localhost:4004/odata/v4/MyService/EmployeeSrv
+
