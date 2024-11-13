@@ -141,7 +141,7 @@ annotate service.PurchaseOrderItems with @(
         },
         {
             $Type: 'UI.DataField',
-            Value: PRODUCT_GUID.Description,
+            Value: PRODUCT_GUID.DESCRIPTION,
         },
         {
             $Type: 'UI.DataField',
@@ -156,7 +156,7 @@ annotate service.PurchaseOrderItems with @(
         TypeName      : 'Item',
         TypeNamePlural: 'Items',
         Title         : {Value: PO_ITEM_POS},
-        Description   : {Value: PRODUCT_GUID.Description}
+        Description   : {Value: PRODUCT_GUID.DESCRIPTION}
     },
     UI.Facets        : [{
         $Type : 'UI.ReferenceFacet',
@@ -200,7 +200,7 @@ annotate service.POs with {
 
 annotate service.PurchaseOrderItems with {
     PRODUCT_GUID @(
-        Common          : {Text: PRODUCT_GUID.Description, },
+        Common          : {Text: PRODUCT_GUID.DESCRIPTION, },
         ValueList.entity: service.ProductSet
     )
 };
@@ -213,7 +213,7 @@ annotate service.BusinessPartnerSet with @(UI.Identification: [{
 }]);
 
 @cds.odata.valuelist
-annotate service.POs with @(UI.Identification: [{
+annotate service.ProductSet with @(UI.Identification: [{
     $Type: 'UI.DataField',
-    Value: Description
+    Value: DESCRIPTION
 }]);
