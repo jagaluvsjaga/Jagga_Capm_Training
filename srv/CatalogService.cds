@@ -19,7 +19,14 @@ service CatalogService @(path: 'CatalogService') {
 
     entity AddressSet                       as projection on db.master.address;
     //@readonly
-    entity EmployeeSet                      as projection on db.master.employees;
+    entity ProductSet                       as projection on db.master.product;
+
+    entity EmployeeSet @(restrict: [{
+        grant: 'READ',
+        to   : 'Viewer',
+        where: 'bankName = $user.BankName'
+    }])                                     as projection on db.master.employees;
+
     entity PurchaseOrderItems               as projection on db.transaction.poitems;
 
     entity POs @(odata.draft.enabled: true) as
@@ -65,15 +72,10 @@ service CatalogService @(path: 'CatalogService') {
             Items               : redirected to PurchaseOrderItems
         }
         actions {
-            action boost() returns POs
+            action boost() returns POs;
         };
 
     function largestOrder() returns POs;
 
-    entity ProductSet                       as
-        projection on db.master.product {
-            *,
-        };
-
-    //entity CProductValuesView               as projection on cds.CDSViews.CProductValuesView;
+//entity CProductValuesView               as projection on cds.CDSViews.CProductValuesView;
 }
